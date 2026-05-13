@@ -1,0 +1,1113 @@
+:root {
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #f6f7f9;
+  color: #18202b;
+  --surface: #ffffff;
+  --surface-muted: #eef2f6;
+  --border: #d8dee7;
+  --text-muted: #607086;
+  --accent: #246bfe;
+  --danger: #c93636;
+  --success: #16784c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 8px;
+  background: #18202b;
+  color: white;
+  font-weight: 800;
+}
+
+.brand h1,
+.brand p,
+.view h2,
+.view h3 {
+  margin: 0;
+}
+
+.brand h1 {
+  font-size: 20px;
+}
+
+.brand p,
+.eyebrow,
+.metric span,
+.connection,
+.activity-row small,
+.empty-state {
+  color: var(--text-muted);
+}
+
+.nav-list {
+  display: grid;
+  gap: 8px;
+}
+
+.nav-list button {
+  height: 44px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #273244;
+  text-align: left;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.nav-list button.active,
+.nav-list button:hover {
+  border-color: var(--border);
+  background: var(--surface-muted);
+}
+
+.connection {
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--surface-muted);
+  font-size: 14px;
+}
+
+.connection.connected {
+  color: var(--success);
+}
+
+.connection.error,
+.connection.disconnected {
+  color: var(--danger);
+}
+
+.content {
+  padding: 32px;
+}
+
+.caregiver-public-shell {
+  display: grid;
+  gap: 24px;
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.caregiver-public-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 1080px;
+}
+
+.caregiver-public-brand h1,
+.caregiver-public-brand p {
+  margin: 0;
+}
+
+.caregiver-public-brand h1 {
+  font-size: 20px;
+}
+
+.caregiver-public-brand p {
+  color: var(--text-muted);
+}
+
+.view {
+  display: grid;
+  gap: 24px;
+  max-width: 1080px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.view h2 {
+  font-size: 30px;
+  letter-spacing: 0;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.metric,
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.metric {
+  display: grid;
+  gap: 8px;
+  min-height: 112px;
+  padding: 18px;
+}
+
+.metric strong {
+  overflow-wrap: anywhere;
+}
+
+.panel {
+  padding: 20px;
+}
+
+.provider-list,
+.settings-list,
+.activity-row {
+  display: grid;
+  gap: 10px;
+}
+
+.readiness-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.readiness-summary span {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--surface-muted);
+  color: #273244;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.readiness-list {
+  display: grid;
+  gap: 10px;
+}
+
+.checklist-sections {
+  display: grid;
+  gap: 18px;
+}
+
+.checklist-section h4 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.provider-row,
+.activity-row,
+.settings-list div {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.readiness-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) minmax(100px, auto) 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.readiness-row strong.ready {
+  color: var(--success);
+}
+
+.readiness-row strong.limited {
+  color: #9a6418;
+}
+
+.readiness-row strong.needs-setup {
+  color: var(--danger);
+}
+
+.readiness-row strong.pass {
+  color: var(--success);
+}
+
+.readiness-row strong.warning {
+  color: #9a6418;
+}
+
+.readiness-row strong.fail {
+  color: var(--danger);
+}
+
+.readiness-row small {
+  color: var(--text-muted);
+}
+
+.checklist-row {
+  grid-template-columns: minmax(120px, 170px) minmax(80px, auto) minmax(140px, 1fr) minmax(180px, 1fr);
+}
+
+.activity-row {
+  grid-template-columns: 150px 1fr minmax(180px, auto);
+}
+
+.settings-list {
+  margin: 16px 0 0;
+}
+
+.settings-list dt {
+  color: var(--text-muted);
+}
+
+.settings-list dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.setup-hints {
+  margin: 14px 0 0;
+  padding-left: 20px;
+  color: var(--text-muted);
+}
+
+.emergency-panel {
+  border-color: color-mix(in srgb, var(--danger), var(--border) 70%);
+}
+
+.emergency-state {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+.emergency-state strong {
+  font-size: 28px;
+}
+
+.emergency-state.active {
+  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger), white 88%);
+}
+
+.emergency-state.pending-confirmation {
+  border-color: #d0932f;
+  background: #fff7e8;
+}
+
+.emergency-actions,
+.caregiver-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.emergency-actions button {
+  min-width: 92px;
+  height: 40px;
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  background: var(--danger);
+  color: white;
+  cursor: pointer;
+}
+
+.emergency-actions button.secondary {
+  border-color: var(--border);
+  background: white;
+  color: #273244;
+}
+
+.emergency-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.caregiver-list {
+  display: grid;
+  gap: 10px;
+}
+
+.caregiver-token-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.token-form {
+  display: grid;
+  grid-template-columns: 1fr minmax(104px, auto) minmax(96px, auto) minmax(82px, auto);
+  gap: 10px;
+  align-items: end;
+}
+
+.token-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.token-form input {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: inherit;
+  background: white;
+}
+
+.token-form button {
+  min-width: 80px;
+  height: 40px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+.token-form button.secondary {
+  border-color: var(--border);
+  background: white;
+  color: #273244;
+}
+
+.token-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.summary-task-list {
+  display: grid;
+  gap: 8px;
+}
+
+.summary-task-row {
+  display: grid;
+  grid-template-columns: minmax(80px, 120px) minmax(90px, auto) 1fr;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+.summary-task-row small {
+  color: var(--text-muted);
+}
+
+.caregiver-task-row {
+  grid-template-columns: minmax(80px, 120px) minmax(120px, auto) 1fr;
+}
+
+.caregiver-metrics {
+  margin: 16px 0;
+}
+
+.caregiver-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.permission-grid {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.permission-grid label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.safety-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(130px, auto);
+  gap: 10px;
+  align-items: end;
+  margin-top: 14px;
+}
+
+.safety-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.caregiver-form input,
+.safety-form input {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: inherit;
+  background: white;
+}
+
+.caregiver-form button,
+.caregiver-row button,
+.settings-actions button,
+.safety-form button {
+  min-width: 80px;
+  height: 40px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+.caregiver-row button.secondary,
+.settings-actions button.secondary,
+.caregiver-form button.secondary {
+  border-color: var(--border);
+  background: white;
+  color: #273244;
+}
+
+.caregiver-row {
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+
+.caregiver-row span {
+  min-width: 140px;
+}
+
+.caregiver-row small,
+.emergency-state small {
+  color: var(--text-muted);
+}
+
+.token-expiry-control {
+  display: grid;
+  grid-template-columns: minmax(120px, auto) 1fr minmax(160px, 220px);
+  gap: 10px;
+  align-items: end;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.token-expiry-control span,
+.token-expiry-control label {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.token-expiry-control label {
+  display: grid;
+  gap: 6px;
+}
+
+.token-expiry-control input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: inherit;
+  background: white;
+}
+
+.token-expiry-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.token-expiry-buttons button {
+  min-width: 64px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: #273244;
+  cursor: pointer;
+}
+
+.token-expiry-buttons button.active {
+  border-color: var(--accent);
+  background: #e8f0ff;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.chat-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.control-panel,
+.control-form,
+.task-advance-form,
+.plan-box,
+.screen-panel,
+.task-panel,
+.task-session {
+  display: grid;
+  gap: 14px;
+}
+
+.control-status,
+.plan-heading,
+.result-box,
+.task-heading,
+.screen-advance-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.control-status {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.control-form textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  color: inherit;
+  background: white;
+}
+
+.task-advance-form {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(110px, auto);
+  align-items: end;
+}
+
+.task-advance-form textarea {
+  width: 100%;
+  min-width: 0;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  color: inherit;
+  background: white;
+}
+
+.control-form button,
+.plan-box button,
+.task-advance-form button {
+  min-width: 96px;
+  height: 40px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+.plan-box {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+.plan-box p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.pairing-link {
+  display: grid;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pairing-link input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #273244;
+  background: white;
+}
+
+.step-list {
+  display: grid;
+  gap: 8px;
+}
+
+.step-row {
+  display: grid;
+  grid-template-columns: minmax(80px, 120px) 1fr;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+.target-row {
+  display: grid;
+  grid-template-columns: minmax(72px, 100px) 1fr minmax(120px, auto) minmax(116px, auto);
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+.target-row small {
+  color: var(--text-muted);
+}
+
+.result-box {
+  color: var(--success);
+}
+
+.task-heading {
+  justify-content: space-between;
+}
+
+.task-heading div {
+  display: grid;
+  gap: 4px;
+}
+
+.task-heading small,
+.task-row small {
+  color: var(--text-muted);
+}
+
+.task-status {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  background: var(--surface-muted);
+  color: #273244;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.task-status.completed,
+.task-status.ready {
+  color: var(--success);
+}
+
+.task-status.failed,
+.task-status.cancelled {
+  color: var(--danger);
+}
+
+.confirm-line {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.screen-advance-row {
+  justify-content: space-between;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.task-tool-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.screen-advance-row button,
+.task-tool-buttons button {
+  min-width: 136px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: #273244;
+  cursor: pointer;
+}
+
+.task-list {
+  display: grid;
+  gap: 8px;
+}
+
+.task-row {
+  display: grid;
+  grid-template-columns: 1fr minmax(96px, auto) minmax(160px, auto);
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  padding: 10px 12px;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.task-events {
+  display: grid;
+  gap: 8px;
+}
+
+.audit-metrics {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.audit-metrics div {
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+.audit-metrics span {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.audit-list {
+  display: grid;
+  gap: 10px;
+}
+
+.audit-entry {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+}
+
+.audit-entry-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.audit-entry p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.safety-review {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+}
+
+.review-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.review-heading strong {
+  color: var(--danger);
+}
+
+.review-list {
+  display: grid;
+  gap: 6px;
+}
+
+.review-list p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.task-event {
+  display: grid;
+  grid-template-columns: minmax(100px, 130px) 1fr minmax(160px, auto);
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+.task-event span,
+.task-event small {
+  color: var(--text-muted);
+}
+
+.task-row.active,
+.task-row:hover {
+  background: var(--surface-muted);
+}
+
+.screen-preview {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #0f1720;
+}
+
+.message-list {
+  display: grid;
+  gap: 12px;
+  min-height: 280px;
+  align-content: start;
+}
+
+.message {
+  display: grid;
+  gap: 6px;
+  max-width: 760px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+.message.user {
+  justify-self: end;
+  background: #e8f0ff;
+}
+
+.message.assistant {
+  justify-self: start;
+  background: #eef8f3;
+}
+
+.message span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.message p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.chat-form {
+  display: grid;
+  gap: 12px;
+}
+
+.voice-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+.voice-toolbar span {
+  margin-right: auto;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.realtime-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.chat-form textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  color: inherit;
+  background: white;
+}
+
+.chat-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.chat-actions button,
+.voice-toolbar button {
+  min-width: 88px;
+  height: 40px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+.chat-actions button.secondary,
+.voice-toolbar button.secondary,
+.plan-box button.secondary {
+  border-color: var(--border);
+  background: white;
+  color: #273244;
+}
+
+.chat-actions button:disabled,
+.voice-toolbar button:disabled,
+.control-form button:disabled,
+.plan-box button:disabled,
+.task-advance-form button:disabled,
+.screen-advance-row button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.form-error {
+  margin: 0;
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.form-note {
+  margin: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-list,
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .caregiver-public-shell {
+    padding: 20px;
+  }
+
+  .activity-row {
+    grid-template-columns: 1fr;
+  }
+
+  .readiness-row {
+    grid-template-columns: 1fr;
+  }
+
+  .task-row {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-task-row {
+    grid-template-columns: 1fr;
+  }
+
+  .audit-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .task-advance-form,
+  .task-event {
+    grid-template-columns: 1fr;
+  }
+
+  .caregiver-form {
+    grid-template-columns: 1fr;
+  }
+
+  .permission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .safety-form {
+    grid-template-columns: 1fr;
+  }
+
+  .token-form {
+    grid-template-columns: 1fr;
+  }
+
+  .token-expiry-control {
+    grid-template-columns: 1fr;
+  }
+}

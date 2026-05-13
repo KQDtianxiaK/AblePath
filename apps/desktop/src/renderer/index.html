@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AblePath</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell" data-state="idle">
+      <header class="titlebar">
+        <div>
+          <strong>AblePath</strong>
+          <span id="server">connecting</span>
+        </div>
+        <nav>
+          <button id="hide" type="button" title="Hide">-</button>
+          <button id="close" type="button" title="Quit">x</button>
+        </nav>
+      </header>
+
+      <section class="orb-panel">
+        <button id="orb" class="orb" type="button" aria-label="Plan command">
+          <span id="orb-state">idle</span>
+        </button>
+        <div class="listen-progress" aria-live="polite">
+          <span id="listen-countdown">ready</span>
+          <progress id="listen-progress" value="0" max="5"></progress>
+        </div>
+        <label class="screen-toggle">
+          <input id="include-screen" type="checkbox" />
+          screen
+        </label>
+        <label class="screen-toggle">
+          <input id="auto-execute" type="checkbox" />
+          auto
+        </label>
+      </section>
+
+      <section class="command-panel">
+        <textarea id="command" rows="3" placeholder="Open Chrome, visit www.baidu.com, and search 1+1"></textarea>
+        <div class="actions">
+          <button id="listen" type="button" class="secondary" title="Click or hold to record">Listen</button>
+          <select id="speak-target" aria-label="Speak target" title="Speak target">
+            <option value="auto">Auto</option>
+            <option value="command">Command</option>
+            <option value="plan">Plan</option>
+            <option value="steps">Steps</option>
+            <option value="status">Status</option>
+            <option value="error">Error</option>
+          </select>
+          <button id="speak" type="button" class="secondary">Speak</button>
+          <button id="plan" type="button">Plan</button>
+          <button id="next" type="button" class="secondary" disabled>Next</button>
+        </div>
+      </section>
+
+      <section id="preview" class="preview" hidden>
+        <div class="preview-heading">
+          <strong id="status">idle</strong>
+          <span id="risk">risk</span>
+        </div>
+        <p id="explanation"></p>
+        <ol id="steps"></ol>
+      </section>
+
+      <section class="actions bottom-actions">
+        <button id="dry-run" type="button" class="secondary" disabled>Dry-run</button>
+        <button id="confirm" type="button" disabled>Confirm</button>
+        <button id="stop" type="button" class="secondary" disabled>Stop</button>
+        <button id="sos" type="button" class="danger">SOS</button>
+      </section>
+
+      <p id="notice" class="notice"></p>
+    </main>
+    <script src="./renderer.js"></script>
+  </body>
+</html>

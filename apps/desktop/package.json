@@ -1,0 +1,15 @@
+{
+  "name": "@ablepath/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/main.cjs",
+  "description": "AblePath desktop floating assistant shell for Electron.",
+  "scripts": {
+    "start": "electron .",
+    "test": "node scripts/check-desktop.mjs"
+  },
+  "devDependencies": {
+    "electron": "^41.5.1"
+  }
+}

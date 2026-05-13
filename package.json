@@ -1,0 +1,38 @@
+{
+  "name": "ablepath",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AblePath helps people with limited mobility use computers and AI independently.",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @ablepath/server",
+    "dev:web": "npm run dev -w @ablepath/web",
+    "build": "tsc -b packages/shared packages/core apps/server && npm run build -w @ablepath/web",
+    "typecheck": "tsc -b packages/shared packages/core apps/server && npm run typecheck -w @ablepath/web",
+    "test": "npm run test -ws --if-present",
+    "validate:mvp": "npm run build && node scripts/validate-mvp.mjs",
+    "check:demo": "npm run build && node scripts/check-windows-demo.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/ws": "^8.18.1",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "node": "^20.19.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8",
+    "vue-tsc": "^2.2.0"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vue": "^3.5.13",
+    "ws": "^8.18.0"
+  }
+}
